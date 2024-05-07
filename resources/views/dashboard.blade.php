@@ -22,7 +22,10 @@
             </nav>
         </div>
 
-        <p class="max-w-lg text-3xl font-semibold leading-normal text-gray-900">Selamat Datang, !</p>
+        {{-- <p class="max-w-lg text-3xl font-semibold leading-normal text-gray-900">
+            Selamat Datang, {{ auth()->user()->name }}
+        </p> --}}
+        
         <p id="login-success-message"></p>
 
 
