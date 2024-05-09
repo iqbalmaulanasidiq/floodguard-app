@@ -13,8 +13,8 @@
           </a>
         </div>
       </div>
-  
-      <!-- Main Cards Section -->
+      
+      <!-- Main Cards untuk tabel Raindrop -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <!-- Card 1 -->
         <div class="bg-white p-4 rounded-md flex flex-col items-center justify-center space-y-4 shadow-md">
@@ -27,13 +27,18 @@
             <span class="absolute font-quicksand font-bold text-lg text-dark">75%</span>
           </div>
           <!-- Text Content -->
-          <div class="text-center">
-            <p class="text-lg text-gray-600">Status</p>
-            <h1 class="text-2xl text-gray-900">Aman</h1>
-          </div>
+          {{-- @foreach($raindropData as $raindrop) --}}
+
+          
+            <div class="text-center">
+            <p class="text-lg text-gray-600">Cuaca : {{ $raindropData }}</p>
+            <h1 class="text-2xl text-gray-900">Curah Hujan: {{ $raindropDataCurahHujan }}</h1>
+            </div>
+        {{-- @endforeach --}}
+
         </div>
         
-        <!-- Card 2 -->
+        <!-- Card untuk tabel Status -->
         <div class="bg-white p-4 rounded-md flex flex-col items-center justify-center space-y-4 shadow-md">
           <!-- Circular Progress -->
           <div class="w-24 h-24 rounded-full flex items-center justify-center bg-gray-50 relative">
@@ -45,12 +50,29 @@
           </div>
           <!-- Text Content -->
           <div class="text-center">
-            <p class="text-lg text-gray-600">Curah Hujan</p>
-            <h1 class="text-2xl text-gray-900">0</h1>
+            <p class="text-lg text-gray-600" id="cuaca">Status</p>
+            <h1 class="text-2xl text-gray-900" id="cuacaHujan">{{ $statusData }}</h1>
           </div>
         </div>
         
-        <!-- Card 3 -->
+        <!-- Card untuk tabel Ultrasonik -->
+        <div class="bg-white p-4 rounded-md flex flex-col items-center justify-center space-y-4 shadow-md">
+          <!-- Circular Progress -->
+          <div class="w-24 h-24 rounded-full flex items-center justify-center bg-gray-50 relative">
+            <svg class="-rotate-90 w-20 h-20">
+                <circle style="color: #ffffff" stroke-width="8" stroke="currentColor" fill="transparent" r="32" cx="40" cy="40" />
+                <circle style="color: #6FCF97" stroke-width="8" stroke="currentColor" fill="transparent" stroke-linecap="round" r="32" cx="40" cy="40" stroke-dasharray="150" stroke-dashoffset="0" />
+            </svg>
+            <span class="absolute font-quicksand font-bold text-lg text-dark">75%</span>
+          </div>
+          <!-- Text Content -->
+          <div class="text-center">
+            <p class="text-lg text-gray-600">Level Air</p>
+            <h1 class="text-2xl text-gray-900">{{ $ultrasonicData }}</h1>
+          </div>
+        </div>
+        
+        <!-- Card untuk tabel Waterflow -->
         <div class="bg-white p-4 rounded-md flex flex-col items-center justify-center space-y-4 shadow-md">
           <!-- Circular Progress -->
           <div class="w-24 h-24 rounded-full flex items-center justify-center bg-gray-50 relative">
@@ -63,24 +85,7 @@
           <!-- Text Content -->
           <div class="text-center">
             <p class="text-lg text-gray-600">Debit Air</p>
-            <h1 class="text-2xl text-gray-900">3.258</h1>
-          </div>
-        </div>
-        
-        <!-- Card 4 -->
-        <div class="bg-white p-4 rounded-md flex flex-col items-center justify-center space-y-4 shadow-md">
-          <!-- Circular Progress -->
-          <div class="w-24 h-24 rounded-full flex items-center justify-center bg-gray-50 relative">
-            <svg class="-rotate-90 w-20 h-20">
-                <circle style="color: #ffffff" stroke-width="8" stroke="currentColor" fill="transparent" r="32" cx="40" cy="40" />
-                <circle style="color: #6FCF97" stroke-width="8" stroke="currentColor" fill="transparent" stroke-linecap="round" r="32" cx="40" cy="40" stroke-dasharray="150" stroke-dashoffset="0" />
-            </svg>
-            <span class="absolute font-quicksand font-bold text-lg text-dark">75%</span>
-          </div>
-          <!-- Text Content -->
-          <div class="text-center">
-            <p class="text-lg text-gray-600">Water Level</p>
-            <h1 class="text-2xl text-gray-900">625.24</h1>
+            <h1 class="text-2xl text-gray-900">{{ $waterflowData }}</h1>
           </div>
         </div>
         
@@ -280,6 +285,8 @@
     </div>
   </div>
 @endsection
+
+
 
     
         

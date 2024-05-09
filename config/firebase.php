@@ -16,6 +16,7 @@ return [
      * Firebase project configurations
      * ------------------------------------------------------------------------
      */
+    
 
     'projects' => [
         'app' => [
