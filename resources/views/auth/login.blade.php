@@ -115,19 +115,16 @@
             createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    set(ref(database, "users/" + user.uid), {
+                    return set(ref(database, "users/" + user.uid), {
                         name: name,
                         nohp: nohp,
                         email: emailSignup,
                         password: passwordSignup
-                    })
-                    .then(() => {
-                        alert("user telah sukses dibuat");
-                        location.href = "/dashboard";
-                    })
-                    .catch((error) => {
-                        alert(error);
                     });
+                })
+                .then(() => {
+                    alert("user telah sukses dibuat");
+                    location.href = "/dashboard";
                 })
                 .catch((error) => {
                     const errorMessage = error.message;
@@ -149,9 +146,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-

@@ -16,4 +16,13 @@ class FirebaseService
 
         return $firebase->createDatabase();
     }
+
+    public static function getAuth()
+    {
+        $firebase = (new Factory)
+            ->withServiceAccount(base_path(env('FIREBASE_CREDENTIALS')))
+            ->createAuth();
+
+        return $firebase;
+    }
 }

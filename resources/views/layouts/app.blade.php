@@ -18,6 +18,7 @@
 
     <div class="flex-1">
       @yield('content')
+      
     </div>
   </div>
 

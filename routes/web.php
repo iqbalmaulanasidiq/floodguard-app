@@ -23,8 +23,26 @@ Route::get('/', [IndexController::class, 'show']);
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+    return view('dashboard', ['user' => auth()->user()]);
+}) ;
+
+use App\Http\Controllers\UserController;
+
+// Define the route for user management
+Route::get('/kelola', [UserController::class, 'index'])->name('users.index');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+
+
+
+
+
+
+
+
+
 
 // Route::post('login', [AuthController::class, 'login']);
 // Route::post('register', [AuthController::class, 'register']);
