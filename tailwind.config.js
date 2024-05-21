@@ -1,3 +1,4 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
 module.exports = {
   content: [
     "./resources/**/*.blade.php",

@@ -21,13 +21,7 @@
                 </ol>
             </nav>
         </div>
-
-        {{-- <p class="max-w-lg text-3xl font-semibold leading-normal text-gray-900">
-            Selamat Datang, {{ auth()->user('email') ? auth()->user()->name : 'Pengunjung' }}
-        </p> --}}
-        
-        
-        
+                
         <p id="login-success-message"></p>
 
 

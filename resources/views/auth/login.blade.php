@@ -74,6 +74,8 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
         import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+        import { get } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+
 
         const firebaseConfig = {
             apiKey: "AIzaSyBUTHsxJwwS5k1wG8POzvPU-IFAoD5gWGg",
@@ -97,8 +99,8 @@
             signInWithEmailAndPassword(auth, emailSignin, passwordSignin)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    alert("user telah sukses login");
-                    location.href = "/dashboard";
+                    // Check user role after login
+                    checkUserRole(user.uid);
                 })
                 .catch((error) => {
                     const errorMessage = error.message;
@@ -115,11 +117,13 @@
             createUserWithEmailAndPassword(auth, emailSignup, passwordSignup)
                 .then((userCredential) => {
                     const user = userCredential.user;
+                    // Set default role to 'user'
                     return set(ref(database, "users/" + user.uid), {
                         name: name,
                         nohp: nohp,
                         email: emailSignup,
-                        password: passwordSignup
+                        password: passwordSignup,
+                        role: "user" // Default role set to 'user'
                     });
                 })
                 .then(() => {
@@ -131,6 +135,25 @@
                     alert(errorMessage);
                 });
         });
+
+        function checkUserRole(userId) {
+            const userRef = ref(database, "users/" + userId);
+            get(userRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    const role = userData.role;
+                    if (role === "admin") {
+                        location.href = "/dashboard";
+                    } else {
+                        alert("Anda tidak memiliki akses ke halaman dashboard.");
+                    }
+                } else {
+                    alert("Data pengguna tidak ditemukan.");
+                }
+            }).catch((error) => {
+                console.error("Error getting user data:", error);
+            });
+        }
 
         const sign_in_btn = document.querySelector("#sign-in-btn");
         const sign_up_btn = document.querySelector("#sign-up-btn");

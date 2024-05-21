@@ -1,12 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+
+
 
 
 Route::get('/login', function () {
     return view('auth.login');
 });
+
+// Route::get('/test', function () {
+//     return view('auth.test');
+// });
+
+
+
+
+// use App\Http\Controllers\LoginController;
+
+// Route::post('/masuk', [LoginController::class, 'masuk'])->name('masuk');
+// Route::post('/daftar', [LoginController::class, 'daftar'])->name('daftar');
+
 
 // Route::get('/', function () {
 //     return view('index');
@@ -22,9 +36,18 @@ Route::get('/', [IndexController::class, 'show']);
 
 
 
+Route::get('/info', function () {
+    return view('info');
+});
+Route::get('/index2', function () {
+    return view('index2');
+});
+Route::get('/alat', function () {
+    return view('alat');
+});
 Route::get('/dashboard', function () {
     return view('dashboard', ['user' => auth()->user()]);
-}) ;
+});
 
 use App\Http\Controllers\UserController;
 

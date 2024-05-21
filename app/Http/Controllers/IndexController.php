@@ -13,11 +13,13 @@ class IndexController extends Controller
         $this->database = \App\Services\FirebaseService::connect();
     }
 
+    
+
 
     public function show()
     {
         // tampilkan data dari tabel Raindrop
-        $raindropRef = $this->database->getReference('Raindrop');
+        $raindropRef = $this->database->getReference('Raindrops');
         $raindropData = $raindropRef->getChild('Cuaca')->getValue();
         $raindropDataCurahHujan = $raindropRef->getChild('Curah hujan')->getValue();
 
@@ -27,41 +29,15 @@ class IndexController extends Controller
 
         // tampilkan data dari tabel Ultrasonik
         $ultrasonicRef = $this->database->getReference('Ultrasonik');
-        $ultrasonicData = $ultrasonicRef->getChild('Level air')->getValue();
+        $ultrasonicData = $ultrasonicRef->getChild('Level Air')->getValue();
 
         // tampilkan data dari tabel Waterflow
         $waterflowRef = $this->database->getReference('Waterflow');
-        $waterflowData = $waterflowRef->getChild('Debit air')->getValue();
+        $waterflowData = $waterflowRef->getChild('Debit Air')->getValue();
 
         return view('index', compact('raindropData', 'raindropDataCurahHujan', 'statusData', 'ultrasonicData', 'waterflowData'));
+        
     }
-
-    // // menampilkan dari table Status
-    // public function showStatus(){
-    //     $statusRef = $this->database->getReference('Status');
-    //     $statusData = $statusRef->getChild('Status')->getValue();
-
-    //     return view('index', compact('statusData'));
-    // }
-
-    // public function showUltrasonic(){
-    //     $ultrasonicRef = $this->database->getReference('Ultrasonik');
-    //     $ultrasonicData = $ultrasonicRef->getChild('Level air')->getValue();
-
-    //     return view('index', compact('ultrasonicData'));
-    // }
-
-    // public function showWaterflow(){
-    //     $waterflowRef = $this->database->getReference('Waterflow');
-    //     $waterflowData = $waterflowRef->getChild('Debit air')->getValue();
-
-    //     return view('index', compact('waterflowData'));
-    // }
-
-
-
-
-   
 
     public function index()
     {
