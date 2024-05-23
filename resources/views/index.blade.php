@@ -29,7 +29,7 @@
             <!-- Column 1: Larger column (3/4 of the width) -->
             <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4 ">
                 <!-- Card 1 -->
-                <div class="bg-white p-4 rounded-md flex flex-col items-center justify-center space-y-4 shadow-md h-80 gradient-hover-card">
+                <div class="bg-white p-4 rounded-md flex flex-col items-center justify-center space-y-4 shadow-md h-80 gradient-hover-card" id="raindrops-card">
                     <!-- Circular Progress -->
                     <div class="w-24 h-24 rounded-full flex items-center justify-center bg-gray-50 relative">
                         <svg class="-rotate-90 w-20 h-20">
@@ -103,8 +103,24 @@
 </div>
 </section>
 
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <script>
-    window.addEventListener('scroll', function() {
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('8f549413fe88359ea4fd', {
+        cluster: 'ap1'
+    });
+
+    var channel = pusher.subscribe('data-channel');
+    channel.bind('App\\Events\\DataUpdated', function(data) {
+        // Update your DOM or perform actions with the data
+        console.log(data);
+    });
+</script>
+
+
+<script>
+     window.addEventListener('scroll', function() {
         const navbar = document.getElementById('navbar');
         if (window.scrollY > 50) {
             navbar.classList.remove('navbar-hidden');
@@ -114,8 +130,6 @@
             navbar.classList.add('navbar-hidden');
         }
     });
-</script>
-<script>
     // Function to handle smooth scrolling
     function smoothScroll(target, duration) {
         var targetElement = document.querySelector(target);

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/dist/output.css" rel="stylesheet">
+  {{-- <link href="/dist/output.css" rel="stylesheet"> --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <head>
     <!-- Other head content -->
@@ -150,14 +150,14 @@
     transition: background-color 0.3s ease-in-out; /* Smooth transition */
 }
 .gradient-hover-card {
-    transition: background-color 0.3s ease-in-out, background-image 0.3s ease-in-out 0.5s; /* Smooth transition with delay */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
 }
 
 .gradient-hover:hover {
     background-image: linear-gradient(45deg, #4F46E5, #8E54E9); /* Gradient colors */
 }
 .gradient-hover-card:hover {
-    background-image: linear-gradient(45deg, #6776ff, #000000); /* Gradient colors */
+    background-image: linear-gradient(45deg, #3b4fff, #000000); /* Gradient colors */
 }
 
 
