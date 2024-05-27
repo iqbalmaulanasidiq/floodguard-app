@@ -36,6 +36,34 @@ class UserController extends Controller
             return "Error: " . $e->getMessage();
         }
     }
+    // public function show()
+    // {
+    //     try {
+    //         // Mengambil instance Firebase Auth dari FirebaseService
+    //         $firebaseAuth = FirebaseService::getAuth();
+
+    //         // Mendapatkan semua pengguna dari Firebase Authentication
+    //         $users = $firebaseAuth->listUsers($defaultMaxResults = 1000);
+
+    //         // Menyiapkan array untuk menyimpan data pengguna
+    //         $userData = [];
+
+    //         // Menampilkan data pengguna
+    //         foreach ($users as $user) {
+    //             // Menambahkan data pengguna ke dalam array
+    //             $userData[] = [
+    //                 'email' => $user->email,
+    //                 'uid' => $user->uid,
+    //             ];
+    //         }
+
+    //         // Mengembalikan data pengguna ke view
+    //         return view('dashboard', compact('userData'));
+    //     } catch (\Exception $e) {
+    //         // Menangani kesalahan jika terjadi
+    //         return "Error: " . $e->getMessage();
+    //     }
+    // }
 
     public function store(Request $request)
     {

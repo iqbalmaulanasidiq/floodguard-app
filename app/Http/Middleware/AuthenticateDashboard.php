@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class authMiddleware
+class AuthenticateDashboard
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,7 @@ class authMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check()) {
-            return response('Unauthorized', 401);
-            return redirect('/login');
+            return redirect()->route('login'); // Ganti 'login' dengan nama route halaman login Anda
         }
 
         return $next($request);

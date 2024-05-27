@@ -99,11 +99,11 @@
             signInWithEmailAndPassword(auth, emailSignin, passwordSignin)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    // Check user role after login
                     checkUserRole(user.uid);
                 })
                 .catch((error) => {
                     const errorMessage = error.message;
+                    console.error("Error during sign-in:", errorMessage); // Use console.error for debugging
                     alert(errorMessage);
                 });
         });
@@ -128,7 +128,7 @@
                 })
                 .then(() => {
                     alert("user telah sukses dibuat");
-                    location.href = "/dashboard";
+                    location.href = "/login";
                 })
                 .catch((error) => {
                     const errorMessage = error.message;

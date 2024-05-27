@@ -41,11 +41,30 @@
             </div>
 
             <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 animate__animated animate__fadeInUp delay-16">
-                <img class="object-cover w-full rounded-t-lg h-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 animate__animated animate__zoomIn" src="{{ asset('storage/img/rain.jpg') }}" alt="">
+                <img class="object-cover w-full rounded-t-lg h-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 animate__animated animate__zoomIn" src="{{ asset('storage/img/solar.jpg') }}" alt="">
                 <div class="flex flex-col justify-between p-4 leading-normal">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SOLAR PANEL USB OUTPUT 5V 2W</h5>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                         Solar panel USB output 5V 2W adalah panel surya yang digunakan untuk menghasilkan daya listrik dari sinar matahari. Panel surya ini memiliki output 5V dan daya 2W. Panel surya ini memiliki ukuran 13 cm x 8 cm x 0.2 cm dan berat 50 gram. Panel surya ini memiliki kabel USB sehingga dapat langsung dihubungkan ke perangkat yang memiliki port USB. Panel surya ini digunakan untuk mengisi daya baterai pada proyek ini.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 animate__animated animate__fadeInUp delay-16">
+                <img class="object-cover w-full rounded-t-lg h-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 animate__animated animate__zoomIn" src="{{ asset('storage/img/rain.jpg') }}" alt="">
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Raindrops Sensor</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Raindrops sensor adalah sensor yang digunakan untuk mendeteksi adanya hujan. Sensor ini memiliki dua pin, yaitu pin VCC dan pin GND. Sensor ini memiliki output digital yang akan aktif ketika terjadi hujan. Pada proyek ini sensor hujan digunakan untuk mendeteksi adanya hujan dengan mengukur curah hujannya. Sensor ini akan memberikan sinyal ke ESP32 ketika terjadi hujan.
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 animate__animated animate__fadeInUp delay-16">
+                <img class="object-cover w-full rounded-t-lg h-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 animate__animated animate__zoomIn" src="{{ asset('storage/img/water.jpg') }}" alt="">
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Waterflow Sensor</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Waterflow sensor adalah sensor yang digunakan untuk mengukur aliran air. Sensor ini memiliki dua pin, yaitu pin VCC dan pin GND. Sensor ini memiliki output digital yang akan aktif ketika terjadi aliran air. Pada proyek ini sensor aliran air digunakan untuk mengukur debit air di sungai. Sensor ini akan memberikan sinyal ke ESP32 ketika terjadi aliran air deras atau lambat nya aliran air sungai.
                     </p>
                 </div>
             </div>

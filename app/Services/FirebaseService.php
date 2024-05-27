@@ -26,9 +26,4 @@ class FirebaseService
         return $firebase;
     }
     
-
-
-   
-
-    
 }

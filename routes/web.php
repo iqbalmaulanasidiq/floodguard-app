@@ -9,30 +9,19 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
-// Route::get('/test', function () {
-//     return view('auth.test');
-// });
 
-
-
-
-// use App\Http\Controllers\LoginController;
-
-// Route::post('/masuk', [LoginController::class, 'masuk'])->name('masuk');
-// Route::post('/daftar', [LoginController::class, 'daftar'])->name('daftar');
-
-
-// Route::get('/', function () {
-//     return view('index');
-// });
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\RealtimeDataController;
 
-// Route::get('/', [RaindropController::class, 'index']);
-Route::get('/', [IndexController::class, 'show']);
-// Route::get('/', [RaindropController::class, 'Status']);
-// Route::get('/', [RaindropController::class, 'showUltrasonic']);
-// Route::get('/', [RaindropController::class, 'showWaterflow']);
+
+Route::get('/', [IndexController::class, 'show'])->name('index');
+Route::get('/raindrop', [IndexController::class, 'showRaindrop'])->name('raindrops');
+Route::get('/cuaca', [IndexController::class, 'showCuaca'])->name('cuaca');
+Route::get('/status', [IndexController::class, 'showStatus'])->name('status');
+Route::get('/ultrasonic', [IndexController::class, 'showUltrasonic'])->name('ultrasonic');
+Route::get('/waterflow', [IndexController::class, 'showWaterflow'])->name('waterflow');
+
 
 
 
@@ -45,14 +34,24 @@ Route::get('/index2', function () {
 Route::get('/alat', function () {
     return view('alat');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard', ['user' => auth()->user()]);
+Route::get('/test', function () {
+    return view('test');
 });
+
+use Illuminate\Support\Facades\Auth; 
+Route::get('/dashboard', function () {
+    $user = Auth::user();
+    return view('dashboard', ['user' => $user]);
+})->middleware('auth');
+
+
+use App\Http\Controllers\ButtonController;
+Route::post('/button/update', [ButtonController::class, 'update'])->name('button.update');
 
 use App\Http\Controllers\UserController;
 
 // Define the route for user management
-Route::get('/kelola', [UserController::class, 'index'])->name('users.index');
+Route::get('/kelola', [UserController::class, 'index'])->name('users.index')->middleware('auth');
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');

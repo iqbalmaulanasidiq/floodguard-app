@@ -38,6 +38,7 @@ class IndexController extends Controller
         return view('index', compact('raindropData', 'raindropDataCurahHujan', 'statusData', 'ultrasonicData', 'waterflowData'));
         
     }
+ 
 
     public function index()
     {
@@ -45,6 +46,48 @@ class IndexController extends Controller
         $raindropData = $raindropRef->getValue();
 
         return response()->json($raindropData);
+
+    }
+
+    public function showRaindrop()
+    {
+       // tampilkan data dari tabel Raindrop
+       $raindropRef = $this->database->getReference('Raindrops');
+       $raindropDataCurahHujan = $raindropRef->getChild('Curah hujan')->getValue();
+       return view('ajax.raindrop', compact('raindropDataCurahHujan'));
+
+    }
+    public function showCuaca()
+    {
+       // tampilkan data dari tabel Raindrop
+       $raindropRef = $this->database->getReference('Raindrops');
+       $raindropData = $raindropRef->getChild('Cuaca')->getValue();
+       return view('ajax.cuaca', compact('raindropData'));
+
+    }
+    public function showStatus()
+    {
+       // tampilkan data dari tabel Raindrop
+       $statusRef = $this->database->getReference('Status');
+       $statusData = $statusRef->getChild('Status')->getValue();
+       return view('ajax.status', compact('statusData'));
+
+    }
+    public function showUltrasonic()
+    {
+       // tampilkan data dari tabel Raindrop
+       $ultrasonicRef = $this->database->getReference('Ultrasonik');
+       $ultrasonicData = $ultrasonicRef->getChild('Level Air')->getValue();
+       return view('ajax.levelAir', compact('ultrasonicData'));
+
+    }
+    public function showWaterflow()
+    {
+       // tampilkan data dari tabel Raindrop
+       $waterflowRef = $this->database->getReference('Waterflow');
+       $waterflowData = $waterflowRef->getChild('Debit Air')->getValue();
+       return view('ajax.debitAir', compact('waterflowData'));
+
     }
 
     
