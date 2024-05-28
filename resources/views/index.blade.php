@@ -2,7 +2,7 @@
 @include('components.nav')
 @section('content')
 
-<section class="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply h-screen flex items-center justify-center" style="background-image: url('{{ asset('storage/img/citarum.jpg') }}');">
+<section class="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply h-screen flex items-center justify-center" style="background-image: url('{{ asset('storage/img/Citarum.jpg') }}');">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56 relative">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl fade-in">FLOODGUARD - SIAGA WARGA MAJALAYA</h1>
         <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48 delay-5 fade-in-two">
@@ -90,7 +90,7 @@
                     <img src="{{ asset('storage/logo.png') }}" class="h-52 w-auto" alt="FlowBite Logo" />
                     <h1 class="text-2xl text-gray-900 font-bold text-center">Siaga Warga Majalaya</h1>
                     <button type="button" class="mt-5 text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 lg:px-10 lg:py-4 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
-                        <a href="#" class="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold">GET APP</a>
+                        <a href="{{ asset('storage/floodguard.apk') }}" class="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold">GET APP</a>
                     </button>
                     
                 </div>
